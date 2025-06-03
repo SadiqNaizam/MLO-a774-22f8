@@ -1,57 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 96.1%; /* PRD colorPalette.background #F5F5F5 */
+    --foreground: 0 0% 12.9%; /* PRD colorPalette.primaryText #212121 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* PRD colorPalette.surface #FFFFFF */
+    --card-foreground: 0 0% 12.9%; /* PRD colorPalette.primaryText #212121 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* PRD colorPalette.surface #FFFFFF */
+    --popover-foreground: 0 0% 12.9%; /* PRD colorPalette.primaryText #212121 */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 207 87% 57%; /* PRD colorPalette.accentBlue #339AF0 */
+    --primary-foreground: 0 0% 100%; /* White for contrast on primary */
 
+    /* Retaining existing secondary HSL values as PRD doesn't specify a direct override for this semantic slot */
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Retaining existing muted HSL for background, PRD secondaryText for foreground */
+    --muted: 210 40% 96.1%; 
+    --muted-foreground: 0 0% 45.9%; /* PRD colorPalette.secondaryText #757575 */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 207 87% 57%; /* PRD colorPalette.accentBlue #339AF0 */
+    --accent-foreground: 0 0% 100%; /* White for contrast on accent */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 89% 70%; /* PRD colorPalette.accentRed #F56C6C */
+    --destructive-foreground: 0 0% 100%; /* White for contrast on destructive */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 89.4%; /* PRD colorPalette.border #E4E4E4 */
+    --input: 0 0% 89.4%; /* PRD colorPalette.border #E4E4E4 */
+    --ring: 207 87% 57%; /* PRD colorPalette.accentBlue #339AF0 for focus */
 
-    --radius: 0.5rem;
+    --radius: 0.375rem; /* PRD effects.borderRadius.default (rounded-md is 0.375rem) */
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
+    /* Sidebar specific theme variables from PRD and existing structure */
+    --sidebar-background: 0 0% 19.2%; /* PRD colorPalette.sidebar #313131 */
+    --sidebar-foreground: 0 0% 96.1%; /* Light text (e.g. #F5F5F5) for dark sidebar */
+    /* Sourced from original dark theme sidebar values for elements on sidebar */
+    --sidebar-primary: 224.3 76.3% 48%; 
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%; 
+    --sidebar-accent-foreground: 0 0% 96.1%; 
+    --sidebar-border: 240 3.7% 25%; 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Additional PRD accent colors */
+    --prd-accent-green: 147 64% 51%; /* PRD colorPalette.accentGreen #33D17A */
+    --prd-accent-yellow: 43 100% 48%; /* PRD colorPalette.accentYellow #F8B400 */
   }
 
   .dark {
+    /* Preserving original dark theme values for base, card, popover, secondary, muted bg, border, input */
+    /* as PRD does not specify dark theme, these offer a starting point */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -61,32 +66,39 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* PRD accents are often kept vibrant in dark mode */
+    --primary: 207 87% 57%; 
+    --primary-foreground: 0 0% 100%; /* White text on vibrant blue */
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 215 20.2% 65.1%; /* Original dark muted-foreground */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 207 87% 57%; 
+    --accent-foreground: 0 0% 100%; /* White text on vibrant blue */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 89% 70%;
+    --destructive-foreground: 0 0% 100%; /* White text on vibrant red */
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
+    --ring: 207 87% 65%; /* Brighter ring for dark mode based on accentBlue */
+    
+    /* Sidebar in dark mode: PRD sidebar is already dark. Values from :root are used. */
+    --sidebar-background: 0 0% 19.2%; 
+    --sidebar-foreground: 0 0% 96.1%; 
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-accent: 240 3.7% 15.9%; 
+    --sidebar-accent-foreground: 0 0% 96.1%; 
+    --sidebar-border: 240 3.7% 25%; 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Additional PRD accent colors are typically global */
+    --prd-accent-green: 147 64% 51%;
+    --prd-accent-yellow: 43 100% 48%;
   }
 }
 
@@ -97,5 +109,7 @@
 
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
